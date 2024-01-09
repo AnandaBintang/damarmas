@@ -110,8 +110,7 @@
         </header>
 
         <article class="container my-5 py-5">
-            <h3 class="text-center">Produk Kami</h3>
-
+            <h3 class="article-title">Produk Kami</h3>
             <div class="category-section">
                 <h4 class="category-title mt-5 text-center">Digital Printing</h4>
                 <div class="digital-printing">
@@ -207,8 +206,124 @@
                 </div>
             </div>
         </article>
+        <article class="container my-5 py-5">
+            <h3 class="article-title">Produk Terlaris</h3>
+            <div class="row row-cols-2 row-cols-lg-4 g-4 my-3">
+                <div class="col">
+                    <a href="#">
+                        <div class="product card">
+                            <img src="https://i.pcmag.com/imagery/roundups/06msR0ZNV3Oc2GfpqCu9AcT-22..v1644880252.jpg"
+                                class="card-img-top" alt="Product">
+                            <div class="card-body">
+                                <h5 class="card-title">Nama Barang</h5>
+                                <p class="card-text fw-semibold text-success">Rp. 0</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="#">
+                        <div class="product card">
+                            <img src="https://i.pcmag.com/imagery/roundups/06msR0ZNV3Oc2GfpqCu9AcT-22..v1644880252.jpg"
+                                class="card-img-top" alt="Product">
+                            <div class="card-body">
+                                <h5 class="card-title">Nama Barang</h5>
+                                <p class="card-text fw-semibold text-success">Rp. 0</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="#">
+                        <div class="product card">
+                            <img src="https://i.pcmag.com/imagery/roundups/06msR0ZNV3Oc2GfpqCu9AcT-22..v1644880252.jpg"
+                                class="card-img-top" alt="Product">
+                            <div class="card-body">
+                                <h5 class="card-title">Nama Barang</h5>
+                                <p class="card-text fw-semibold text-success">Rp. 0</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="#">
+                        <div class="product card">
+                            <img src="https://i.pcmag.com/imagery/roundups/06msR0ZNV3Oc2GfpqCu9AcT-22..v1644880252.jpg"
+                                class="card-img-top" alt="Product">
+                            <div class="card-body">
+                                <h5 class="card-title">Nama Barang</h5>
+                                <p class="card-text fw-semibold text-success">Rp. 0</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </article>
+        <article class="container my-5 py-5">
+            <h3 class="article-title">Pengalaman bermitra dengan Damarmas</h3>
+            <div class="testimonial my-3">
+                <figure class="snip1157">
+                    <blockquote>Calvin: You know sometimes when I'm talking, my words can't keep up with my thoughts...
+                        I
+                        wonder why we think faster than we speak. Hobbes: Probably so we can think twice.
+                        <div class="arrow"></div>
+                    </blockquote>
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample3.jpg" alt="sq-sample3" />
+                    <div class="author">
+                        <h5>Pelican Steve <span> LIttleSnippets.net</span></h5>
+                    </div>
+                </figure>
+                <figure class="snip1157 hover">
+                    <blockquote>Thank you. before I begin, I'd like everyone to notice that my report is in a
+                        professional,
+                        clear plastic binder...When a report looks this good, you know it'll get an A. That's a tip
+                        kids.
+                        Write it down.
+                        <div class="arrow"></div>
+                    </blockquote>
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample27.jpg"
+                        alt="sq-sample27" />
+                    <div class="author">
+                        <h5>Max Conversion<span> LIttleSnippets.net</span></h5>
+                    </div>
+                </figure>
+                <figure class="snip1157">
+                    <blockquote>My behaviour is addictive functioning in a disease process of toxic co-dependency. I
+                        need
+                        holistic healing and wellness before I'll accept any responsibility for my actions.
+                        <div class="arrow"></div>
+                    </blockquote>
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample17.jpg"
+                        alt="sq-sample17" />
+                    <div class="author">
+                        <h5>Eleanor Faint<span> LIttleSnippets.net</span></h5>
+                    </div>
+                </figure>
+            </div>
+        </article>
+        <article class="container my-5 py-5">
+            <h3 class="article-title">Damarmas</h3>
+            <p class="my-3 text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum voluptatem
+                voluptate
+                mollitia ad? Id est quisquam possimus nostrum accusamus aut sapiente nobis, cupiditate minus. Iure
+                voluptatum similique reiciendis itaque aspernatur amet architecto ex? Aliquam explicabo vero inventore,
+                repellat laboriosam fugit ab maiores veniam voluptatum quod amet aspernatur in hic aperiam! Corrupti
+                incidunt ipsa voluptatibus fugit explicabo, sapiente quidem, unde quisquam hic soluta deserunt
+                cupiditate voluptatum! Obcaecati alias cum a autem voluptate. Quia perferendis non, porro ab ex
+                repudiandae dignissimos molestias est amet autem nesciunt voluptate perspiciatis velit. Tempore
+                molestias quae, voluptas maiores eligendi harum, fugit illum voluptates, nobis quidem commodi!</p>
+            <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat magni neque
+                ratione iure obcaecati sunt dolorem quidem corporis quam laudantium praesentium aut molestiae itaque
+                officia pariatur expedita accusamus, ipsa commodi porro quae incidunt quibusdam molestias. Quisquam
+                similique fugiat quod ducimus veritatis laudantium at, earum maiores mollitia harum enim reiciendis
+                exercitationem?</p>
+        </article>
 
         <footer class="footer-section">
+            <a href="https://api.whatsapp.com/send?phone=6281226090061&text=Saya%20membutuhkan%20info%20lebih%20lanjut%20tentang%20barang%20yang%20ada%20di%20Damarmas.com%20.%20Tolong%20dibantu%20ya"
+                class="float" target="_blank">
+                <i class="fa-brands fa-whatsapp my-float"></i>
+            </a>
             <div class="container">
                 <div class="footer-cta pt-5 pb-5">
                     <div class="row">
