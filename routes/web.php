@@ -15,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    $meta = [
+        'title' => 'Home',
+        'description' => 'This is home page',
+        'keywords' => 'damarmas, home, page, printer, running text',
+    ];
     $products = [
         [
             'title' => 'Product 1',
@@ -37,10 +42,15 @@ Route::get('/', function () {
             'image' => 'https://i.pcmag.com/imagery/roundups/06msR0ZNV3Oc2GfpqCu9AcT-22..v1644880252.jpg',
         ],
     ];
-    return view('homepage', compact('products'));
+    return view('homepage', compact('meta', 'products'));
 });
 
 Route::get('/product', function() {
+    $meta = [
+        'title' => 'Product',
+        'description' => 'This is product page',
+        'keywords' => 'damarmas, product, page, printer, running text',
+    ];
     $products = [
         [
             'title' => 'Product 1',
@@ -105,7 +115,7 @@ Route::get('/product', function() {
         ['name' => 'Category 9'],
         ['name' => 'Category 10'],
     ];
-    return view('product', compact('products', 'categories'));
+    return view('product', compact('meta', 'products', 'categories'));
 });
 
 Route::get('/dashboard', function () {

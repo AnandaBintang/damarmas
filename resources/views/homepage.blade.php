@@ -40,37 +40,44 @@
                 <ul class="honeycomb" lang="es">
                     <li class="honeycomb-cell">
                         <img class="honeycomb-cell__image"
-                            src="https://i.pinimg.com/564x/96/54/2f/96542f9d0dbcf20d49b427a2b3db0701.jpg">
+                            src="https://i.pinimg.com/564x/96/54/2f/96542f9d0dbcf20d49b427a2b3db0701.jpg"
+                            alt="Digital Printing Damarmas">
                         <div class="honeycomb-cell__title">Digital Printing</div>
                     </li>
                     <li class="honeycomb-cell">
                         <img class="honeycomb-cell__image"
-                            src="https://i.pinimg.com/564x/bf/cc/d6/bfccd61e1bc94598b1123431e84be1d3.jpg">
+                            src="https://i.pinimg.com/564x/bf/cc/d6/bfccd61e1bc94598b1123431e84be1d3.jpg"
+                            alt="UV LED Printer Damarmas">
                         <div class="honeycomb-cell__title">UV LED Printer</div>
                     </li>
                     <li class="honeycomb-cell">
                         <img class="honeycomb-cell__image"
-                            src="https://i.pinimg.com/564x/58/d3/85/58d3857f3c6e0d52cdc10fb954ac09fd.jpg">
+                            src="https://i.pinimg.com/564x/58/d3/85/58d3857f3c6e0d52cdc10fb954ac09fd.jpg"
+                            alt="Printer Warna A3+ Damarmas">
                         <div class="honeycomb-cell__title">Printer Warna A3+</div>
                     </li>
                     <li class="honeycomb-cell">
                         <img class="honeycomb-cell__image"
-                            src="https://i.pinimg.com/564x/0e/14/8d/0e148da02940c53fe7057b6300fa6312.jpg">
+                            src="https://i.pinimg.com/564x/0e/14/8d/0e148da02940c53fe7057b6300fa6312.jpg"
+                            alt="Printer ID Card Damarmas">
                         <div class="honeycomb-cell__title">Printer ID Card</div>
                     </li>
                     <li class="honeycomb-cell">
                         <img class="honeycomb-cell__image"
-                            src="https://i.pinimg.com/564x/0e/14/8d/0e148da02940c53fe7057b6300fa6312.jpg">
+                            src="https://i.pinimg.com/564x/0e/14/8d/0e148da02940c53fe7057b6300fa6312.jpg"
+                            alt="Print & Cut Damarmas">
                         <div class="honeycomb-cell__title">Print & Cut</div>
                     </li>
                     <li class="honeycomb-cell">
                         <img class="honeycomb-cell__image"
-                            src="https://i.pinimg.com/564x/63/f9/d6/63f9d6f05d451e6890d410262fba7812.jpg">
+                            src="https://i.pinimg.com/564x/63/f9/d6/63f9d6f05d451e6890d410262fba7812.jpg"
+                            alt="Printer Plotter Teknikal Damarmas">
                         <div class="honeycomb-cell__title">Printer Plotter Teknikal</div>
                     </li>
                     <li class="honeycomb-cell">
                         <img class="honeycomb-cell__image"
-                            src="https://i.pinimg.com/564x/ed/4f/db/ed4fdb35e22a5b09b50e93f391ee5c21.jpg">
+                            src="https://i.pinimg.com/564x/ed/4f/db/ed4fdb35e22a5b09b50e93f391ee5c21.jpg"
+                            alt="Printer 3D Damarmas">
                         <div class="honeycomb-cell__title">Printer 3D</div>
                     </li>
                     <li class="honeycomb-cell honeycomb__placeholder"></li>
