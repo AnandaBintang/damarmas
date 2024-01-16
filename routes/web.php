@@ -132,6 +132,20 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::middleware('auth')->group(function() {
+    Route::resource('category', \App\Http\Controllers\CategoryController::class, [
+        'names' => [
+            'index' => 'category.index',
+            'create' => 'category.create',
+            'store' => 'category.store',
+            'show' => 'category.show',
+            'edit' => 'category.edit',
+            'update' => 'category.update',
+            'destroy' => 'category.destroy',
+        ]
+    ]);
+});
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
