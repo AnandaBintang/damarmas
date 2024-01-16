@@ -8,7 +8,15 @@
                 </th>
                 <th
                     class="px-6 py-3 border-b border-gray-200 dark:border-gray-700 text-left text-xs font-semibold text-gray-600 dark:text-gray-200 uppercase tracking-wider">
-                    Nama Kategori
+                    Nama Sub Kategori
+                </th>
+                <th
+                    class="px-6 py-3 border-b border-gray-200 dark:border-gray-700 text-left text-xs font-semibold text-gray-600 dark:text-gray-200 uppercase tracking-wider">
+                    Thumbnail Kategori
+                </th>
+                <th
+                    class="px-6 py-3 border-b border-gray-200 dark:border-gray-700 text-left text-xs font-semibold text-gray-600 dark:text-gray-200 uppercase tracking-wider">
+                    Termasuk Kategori
                 </th>
                 <th
                     class="px-6 py-3 border-b border-gray-200 dark:border-gray-700 text-left text-xs font-semibold text-gray-600 dark:text-gray-200 uppercase tracking-wider">
@@ -16,22 +24,28 @@
                 </th>
             </tr>
         </thead>
-        <!-- ... (kode header tabel tetap sama) ... -->
         <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-            @foreach ($categories as $category)
+            @foreach ($subcategories as $subcategory)
                 <tr>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">
                         {{ $loop->iteration }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">
-                        {{ $category->name }}
+                        {{ $subcategory->name }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">
+                        <img src="{{ url('/storage/upload/subcategory/' . $subcategory->image) }}"
+                            alt="{{ $subcategory->name }}" class="w-20 h-20 object-cover">
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">
+                        {{ $subcategory->category->name }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                        <a href="{{ route('category.edit', $category->id) }}"
+                        <a href="{{ route('subcategory.edit', $subcategory->id) }}"
                             class="text-indigo-600 hover:text-indigo-900">
                             <i class="fas fa-edit mr-2"></i>
                         </a>
-                        <form action="{{ route('category.destroy', $category->id) }}" method="POST"
+                        <form action="{{ route('subcategory.destroy', $subcategory->id) }}" method="POST"
                             class="inline-block">
                             @csrf
                             @method('DELETE')
@@ -44,5 +58,5 @@
             @endforeach
         </tbody>
     </table>
-    {{ $categories->links() }}
+    {{ $subcategories->links() }}
 </div>

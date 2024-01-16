@@ -144,6 +144,28 @@ Route::middleware('auth')->group(function() {
             'destroy' => 'category.destroy',
         ]
     ]);
+    Route::resource('subcategory', \App\Http\Controllers\SubcategoryController::class, [
+        'names' => [
+            'index' => 'subcategory.index',
+            'create' => 'subcategory.create',
+            'store' => 'subcategory.store',
+            'show' => 'subcategory.show',
+            'edit' => 'subcategory.edit',
+            'update' => 'subcategory.update',
+            'destroy' => 'subcategory.destroy',
+        ]
+    ]);
+    Route::resource('product', \App\Http\Controllers\ProductController::class, [
+        'names' => [
+            'index' => 'product.index',
+            'create' => 'product.create',
+            'store' => 'product.store',
+            'show' => 'product.show',
+            'edit' => 'product.edit',
+            'update' => 'product.update',
+            'destroy' => 'product.destroy',
+        ]
+    ]);
 });
 
 Route::middleware('auth')->group(function () {
