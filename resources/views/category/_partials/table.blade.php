@@ -1,6 +1,6 @@
 <div class="overflow-x-auto">
-    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-        <thead class="bg-gray-50 dark:bg-gray-700">
+    <table id="table" class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+        <thead>
             <tr>
                 <th
                     class="px-6 py-3 border-b border-gray-200 dark:border-gray-700 text-left text-xs font-semibold text-gray-600 dark:text-gray-200 uppercase tracking-wider w-1/12">
@@ -16,7 +16,6 @@
                 </th>
             </tr>
         </thead>
-        <!-- ... (kode header tabel tetap sama) ... -->
         <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
             @foreach ($categories as $category)
                 <tr>
