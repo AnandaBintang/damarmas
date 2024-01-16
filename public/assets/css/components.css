@@ -173,21 +173,12 @@ ul {
 
 /* Tablet Screen */
 @media (min-width: 550px) and (max-width: 825px) {
-    .carousel {
-        width: 70%;
-    }
 }
 
 /* Desktop Screen */
 @media (min-width: 825px) and (max-width: 1100px) {
-    .carousel {
-        width: 60%;
-    }
 }
 
 /* Large Desktop Screen */
 @media (min-width: 1100px) {
-    .carousel {
-        width: 50%;
-    }
 }

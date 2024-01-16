@@ -118,6 +118,16 @@ Route::get('/product', function() {
     return view('product', compact('meta', 'products', 'categories'));
 });
 
+Route::get('/product/detail', function() {
+    $meta = [
+        'title' => 'Product',
+        'description' => 'This is product page',
+        'keywords' => 'damarmas, product, page, printer, running text',
+    ];
+
+    return view('product-detail', compact('meta'));
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

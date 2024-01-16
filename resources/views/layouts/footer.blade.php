@@ -1,5 +1,5 @@
 <footer class="footer-section">
-    <a href="https://api.whatsapp.com/send?phone=6281226090061&text=Saya%20membutuhkan%20info%20lebih%20lanjut%20tentang%20barang%20yang%20ada%20di%20Damarmas.com%20.%20Tolong%20dibantu%20ya"
+    <a href="https://api.whatsapp.com/send?phone=6281226090061&text=Saya%20membutuhkan%20info%20lebih%20lanjut%20tentang%20barang%20yang%20ada%20di%20Damarmas.com%20.%20Tolong%20dibantu%20ya!"
         class="whatsapp" target="_blank">
         <i class="fa-brands fa-whatsapp whatsapp-icon"></i>
     </a>

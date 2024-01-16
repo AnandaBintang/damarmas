@@ -39,34 +39,44 @@
             <div class="digital-printing">
                 <ul class="honeycomb" lang="es">
                     <li class="honeycomb-cell">
-                        <img class="honeycomb-cell__image"
-                            src="https://i.pinimg.com/564x/96/54/2f/96542f9d0dbcf20d49b427a2b3db0701.jpg"
-                            alt="Digital Printing Damarmas">
-                        <div class="honeycomb-cell__title">Digital Printing</div>
+                        <a href="{{ url('/product') }}">
+                            <img class="honeycomb-cell__image"
+                                src="https://i.pinimg.com/564x/96/54/2f/96542f9d0dbcf20d49b427a2b3db0701.jpg"
+                                alt="Digital Printing Damarmas">
+                            <div class="honeycomb-cell__title">Digital Printing</div>
+                        </a>
                     </li>
                     <li class="honeycomb-cell">
-                        <img class="honeycomb-cell__image"
-                            src="https://i.pinimg.com/564x/bf/cc/d6/bfccd61e1bc94598b1123431e84be1d3.jpg"
-                            alt="UV LED Printer Damarmas">
-                        <div class="honeycomb-cell__title">UV LED Printer</div>
+                        <a href="{{ url('/product') }}">
+                            <img class="honeycomb-cell__image"
+                                src="https://i.pinimg.com/564x/bf/cc/d6/bfccd61e1bc94598b1123431e84be1d3.jpg"
+                                alt="UV LED Printer Damarmas">
+                            <div class="honeycomb-cell__title">UV LED Printer</div>
+                        </a>
                     </li>
                     <li class="honeycomb-cell">
-                        <img class="honeycomb-cell__image"
-                            src="https://i.pinimg.com/564x/58/d3/85/58d3857f3c6e0d52cdc10fb954ac09fd.jpg"
-                            alt="Printer Warna A3+ Damarmas">
-                        <div class="honeycomb-cell__title">Printer Warna A3+</div>
+                        <a href="{{ url('/product') }}">
+                            <img class="honeycomb-cell__image"
+                                src="https://i.pinimg.com/564x/58/d3/85/58d3857f3c6e0d52cdc10fb954ac09fd.jpg"
+                                alt="Printer Warna A3+ Damarmas">
+                            <div class="honeycomb-cell__title">Printer Warna A3+</div>
+                        </a>
                     </li>
                     <li class="honeycomb-cell">
-                        <img class="honeycomb-cell__image"
-                            src="https://i.pinimg.com/564x/0e/14/8d/0e148da02940c53fe7057b6300fa6312.jpg"
-                            alt="Printer ID Card Damarmas">
-                        <div class="honeycomb-cell__title">Printer ID Card</div>
+                        <a href="{{ url('/product') }}">
+                            <img class="honeycomb-cell__image"
+                                src="https://i.pinimg.com/564x/0e/14/8d/0e148da02940c53fe7057b6300fa6312.jpg"
+                                alt="Printer ID Card Damarmas">
+                            <div class="honeycomb-cell__title">Printer ID Card</div>
+                        </a>
                     </li>
                     <li class="honeycomb-cell">
-                        <img class="honeycomb-cell__image"
-                            src="https://i.pinimg.com/564x/0e/14/8d/0e148da02940c53fe7057b6300fa6312.jpg"
-                            alt="Print & Cut Damarmas">
-                        <div class="honeycomb-cell__title">Print & Cut</div>
+                        <a href="{{ url('/product') }}">
+                            <img class="honeycomb-cell__image"
+                                src="https://i.pinimg.com/564x/0e/14/8d/0e148da02940c53fe7057b6300fa6312.jpg"
+                                alt="Print & Cut Damarmas">
+                            <div class="honeycomb-cell__title">Print & Cut</div>
+                        </a>
                     </li>
                     <li class="honeycomb-cell">
                         <img class="honeycomb-cell__image"
