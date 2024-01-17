@@ -45,11 +45,11 @@
                             class="text-indigo-600 hover:text-indigo-900">
                             <i class="fas fa-edit mr-2"></i>
                         </a>
-                        <form action="{{ route('subcategory.destroy', $subcategory->id) }}" method="POST"
-                            class="inline-block">
+                        <form id="deleteForm" action="{{ route('subcategory.destroy', $subcategory->id) }}"
+                            method="POST" class="inline-block">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="text-red-600 hover:text-red-900">
+                            <button type="button" class="text-red-600 hover:text-red-900" onclick="deleteData()">
                                 <i class="fas fa-trash-alt mr-2"></i>
                             </button>
                         </form>
