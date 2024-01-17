@@ -7,7 +7,7 @@
                     Kategori</label>
                 <input type="text"
                     class="form-input mt-1 block w-full rounded-md border-gray-600 dark:border-gray-400 bg-gray-700 dark:bg-gray-800 text-gray-300 dark:text-gray-100 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                    id="name" name="name" placeholder="Masukkan nama kategori" value="{{ old('name') }}">
+                    id="name" name="name" placeholder="Masukkan nama sub kategori" value="{{ old('name') }}">
                 @error('name')
                     <div class="text-red-500 mt-2 text-sm">
                         {{ $message }}

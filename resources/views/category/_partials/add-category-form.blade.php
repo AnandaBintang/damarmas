@@ -2,9 +2,11 @@
     <form action="{{ route('category.store') }}" method="POST" class="space-y-4">
         @csrf
         <div>
-            <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Nama Kategori</label>
-            <input type="text" class="form-input mt-1 block w-full" id="name" name="name"
-                placeholder="Masukkan nama kategori" value="{{ old('name') }}">
+            <label for="name" class="block text-sm font-medium text-gray-300 dark:text-gray-400">Nama
+                Kategori</label>
+            <input type="text"
+                class="form-input mt-1 block w-full rounded-md border-gray-600 dark:border-gray-400 bg-gray-700 dark:bg-gray-800 text-gray-300 dark:text-gray-100 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                id="name" name="name" placeholder="Masukkan nama kategori" value="{{ old('name') }}">
             @error('name')
                 <div class="text-red-500 mt-2 text-sm">
                     {{ $message }}
