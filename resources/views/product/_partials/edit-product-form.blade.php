@@ -8,6 +8,29 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 my-3">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 w-full">
+                    <label class="block text-sm font-medium text-gray-300 dark:text-gray-400 my-3">Gambar-gambar
+                        Produk</label>
+                    @if ($productImages->count() > 0)
+                        <div class="grid grid-cols-3 gap-4">
+                            @foreach ($productImages as $image)
+                                <div class="relative">
+                                    <img src="{{ url('storage/upload/product/' . $image->image) }}" alt="Product Image"
+                                        class="h-24 w-full object-cover rounded-md mb-2">
+                                    <form action="{{ route('product.removeImage', $image->id) }}" method="POST"
+                                        class="absolute top-0 right-0">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="bg-red-500 text-white py-1 px-2 rounded-md">
+                                            Hapus
+                                        </button>
+                                    </form>
+                                </div>
+                            @endforeach
+                        </div>
+                    @else
+                        <p>Tidak ada gambar untuk produk ini.</p>
+                    @endif
+                    <hr>
                     <form action="{{ route('product.update', $product->id) }}" method="POST" class="space-y-4"
                         enctype="multipart/form-data">
                         @csrf
@@ -80,6 +103,26 @@
                                     </div>
                                 @enderror
                             </div>
+                            <div class="my-3">
+                                <label for="images"
+                                    class="block text-sm font-medium text-gray-300 dark:text-gray-400">Gambar
+                                    Produk</label>
+                                <div id="image-upload-container">
+                                    <div class="flex items-center space-x-4 mb-2">
+                                        <label for="file-input"
+                                            class="cursor-pointer inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                            <i class="fas fa-cloud-upload-alt mr-2"></i> Pilih File
+                                        </label>
+                                        <img id="main-preview" class="h-12 w-12 object-cover rounded-md">
+                                        <button type="button" class="bg-indigo-500 text-white py-2 px-4 rounded-md"
+                                            onclick="addImageField()">+</button>
+                                        <input type="file" name="images[]" accept="image/*"
+                                            class="hidden image-upload-input" id="file-input"
+                                            onchange="previewImage(this)">
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                         <div>
                             <div class="flex items-center gap-4">

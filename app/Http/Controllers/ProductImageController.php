@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreProductImageRequest;
 use App\Http\Requests\UpdateProductImageRequest;
 use App\Models\ProductImage;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Storage;
 
 class ProductImageController extends Controller
 {
@@ -59,8 +61,14 @@ class ProductImageController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ProductImage $productImage)
+    public function destroy(ProductImage $productImage): RedirectResponse
     {
-        //
+        // Hapus gambar dari penyimpanan
+        Storage::delete('public/upload/product/' . $productImage->image);
+
+        // Hapus record gambar dari database
+        $productImage->delete();
+
+        return back()->with('status', 'Gambar berhasil dihapus.');
     }
 }

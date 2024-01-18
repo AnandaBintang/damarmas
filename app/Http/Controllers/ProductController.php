@@ -91,9 +91,10 @@ class ProductController extends Controller
     public function edit(Request $request)
     {
         $product = Product::find($request->product);
+        $productImages = ProductImage::where('product_id', $product->id)->get();
         $subcategories = Subcategory::all();
 
-        return view('product._partials.edit-product-form', compact('product', 'subcategories'));
+        return view('product._partials.edit-product-form', compact('product', 'productImages', 'subcategories'));
     }
 
     /**

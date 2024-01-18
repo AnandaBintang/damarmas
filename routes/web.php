@@ -45,7 +45,7 @@ Route::get('/', function () {
     return view('homepage', compact('meta', 'products'));
 });
 
-Route::get('/product', function() {
+Route::get('/product', function () {
     $meta = [
         'title' => 'Product',
         'description' => 'This is product page',
@@ -118,7 +118,7 @@ Route::get('/product', function() {
     return view('product', compact('meta', 'products', 'categories'));
 });
 
-Route::get('/product/detail', function() {
+Route::get('/product/detail', function () {
     $meta = [
         'title' => 'Product',
         'description' => 'This is product page',
@@ -132,7 +132,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function() {
+Route::middleware('auth')->group(function () {
     Route::resource('category', \App\Http\Controllers\CategoryController::class, [
         'names' => [
             'index' => 'category.index',
@@ -166,6 +166,7 @@ Route::middleware('auth')->group(function() {
             'destroy' => 'product.destroy',
         ]
     ]);
+    Route::delete('/product-image/{productImage}', [\App\Http\Controllers\ProductImageController::class, 'destroy'])->name('product.removeImage');
 });
 
 Route::middleware('auth')->group(function () {
@@ -174,4 +175,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
