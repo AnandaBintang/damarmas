@@ -45,7 +45,7 @@
                             class="text-indigo-600 hover:text-indigo-900">
                             <i class="fas fa-edit mr-2"></i>
                         </a>
-                        <form id="deleteForm" action="{{ route('subcategory.destroy', $product->id) }}" method="POST"
+                        <form id="deleteForm" action="{{ route('product.destroy', $product->id) }}" method="POST"
                             class="inline-block">
                             @csrf
                             @method('DELETE')
