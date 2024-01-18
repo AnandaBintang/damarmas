@@ -116,17 +116,21 @@ class ProductController extends Controller
         $product->description = $request->description;
         $product->price = (int) $request->price;
         $product->subcategory_id = $request->subcategory;
+
         $product->save();
 
         // Handle product images
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $image) {
-                // Store each image
-                $path = $image->store('public/images');
+                // Generate a unique name for the image
+                $imageName = uniqid() . '.' . $image->getClientOriginalExtension();
+
+                // Store the image with the generated name
+                $image->storeAs('public/upload/product', $imageName);
 
                 // Save image information to the database
                 ProductImage::create([
-                    'name' => $path, // You might want to store the actual filename or additional information
+                    'image' => $imageName,
                     'product_id' => $product->id,
                 ]);
             }
@@ -140,8 +144,20 @@ class ProductController extends Controller
      */
     public function destroy(Product $product): RedirectResponse
     {
+        // Hapus gambar dari storage
+        $productImages = ProductImage::where('product_id', $product->id)->get();
+
+        foreach ($productImages as $image) {
+            // Hapus file dari storage
+            Storage::delete('public/upload/product/' . $image->image);
+
+            // Hapus data gambar dari table product_images
+            $image->delete();
+        }
+
+        // Hapus data produk dari table products
         $product->delete();
 
-        return redirect()->route('product.index')->with('status', 'Produk berhasil dihapus!.');
+        return redirect()->route('product.index')->with('status', 'Produk berhasil dihapus!');
     }
 }

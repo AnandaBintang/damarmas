@@ -57,7 +57,7 @@
             paging: false,
         });
 
-        function deleteData() {
+        function deleteData(id) {
             Swal.fire({
                 title: "Anda yakin ingin menghapus data?",
                 icon: "warning",
@@ -67,7 +67,7 @@
                 denyButtonText: "Jangan Hapus!"
             }).then((result) => {
                 if (result.isConfirmed) {
-                    document.getElementById('deleteForm').submit();
+                    document.getElementById(`deleteForm-${id}`).submit();
                 }
             });
         }
