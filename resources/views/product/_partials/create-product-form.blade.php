@@ -85,28 +85,6 @@
                     </form>
                 </div>
             </div>
-
         </div>
     </div>
-
-    <script>
-        function displayImage(input) {
-            const preview = document.getElementById('thumbnailPreview');
-            const file = input.files[0];
-
-            if (file) {
-                const reader = new FileReader();
-
-                reader.onload = function(e) {
-                    preview.src = e.target.result;
-                    preview.classList.remove('hidden');
-                };
-
-                reader.readAsDataURL(file);
-            } else {
-                preview.src = '';
-                preview.classList.add('hidden');
-            }
-        }
-    </script>
 </x-app-layout>

@@ -67,17 +67,36 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Product $product)
+    public function edit(Request $request)
     {
-        //
+        $product = Product::find($request->product);
+        $subcategories = Subcategory::all();
+
+        return view('product._partials.edit-product-form', compact('product', 'subcategories'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProductRequest $request, Product $product)
+    public function update(Request $request): RedirectResponse
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string|max:255',
+            'price' => 'required|numeric',
+            'subcategory' => 'required|exists:subcategories,id',
+        ]);
+
+        $product = Product::find($request->product);
+
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->price = (int) $request->price;
+        $product->subcategory_id = $request->subcategory;
+
+        $product->save();
+
+        return redirect()->route('product.index')->with('status', 'Produk berhasil diperbarui!.');
     }
 
     /**

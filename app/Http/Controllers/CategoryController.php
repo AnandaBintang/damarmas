@@ -57,7 +57,6 @@ class CategoryController extends Controller
      */
     public function edit(Request $request)
     {
-
         $category = Category::findOrFail($request->category);
 
         // Return view with category data

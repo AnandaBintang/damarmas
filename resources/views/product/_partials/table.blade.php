@@ -41,7 +41,7 @@
                         {{ $product->subcategory->name }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                        <a href="{{ route('subcategory.edit', $product->id) }}"
+                        <a href="{{ route('product.edit', $product->id) }}"
                             class="text-indigo-600 hover:text-indigo-900">
                             <i class="fas fa-edit mr-2"></i>
                         </a>
