@@ -6,8 +6,10 @@ use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Product;
 use App\Models\Subcategory;
+use App\Models\ProductImage;
 
 class ProductController extends Controller
 {
@@ -42,10 +44,12 @@ class ProductController extends Controller
             'description' => 'required|string|max:255',
             'price' => 'required|numeric',
             'subcategory' => 'required|exists:subcategories,id',
+            'images.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $product = new Product();
 
+        // Set basic product details
         $product->name = $request->name;
         $product->description = $request->description;
         $product->price = (int) $request->price;
@@ -53,7 +57,24 @@ class ProductController extends Controller
 
         $product->save();
 
-        return redirect()->route('product.index')->with('status', 'Produk baru berhasil dibuat!.');
+        // Handle product images
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                // Generate a unique name for the image
+                $imageName = uniqid() . '.' . $image->getClientOriginalExtension();
+
+                // Store the image with the generated name
+                $image->storeAs('public/upload/product', $imageName);
+
+                // Save image information to the database
+                ProductImage::create([
+                    'image' => $imageName,
+                    'product_id' => $product->id,
+                ]);
+            }
+        }
+
+        return redirect()->route('product.index')->with('status', 'Produk baru berhasil dibuat!');
     }
 
     /**
@@ -85,18 +106,33 @@ class ProductController extends Controller
             'description' => 'required|string|max:255',
             'price' => 'required|numeric',
             'subcategory' => 'required|exists:subcategories,id',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Validate each image
         ]);
 
         $product = Product::find($request->product);
 
+        // Update basic product details
         $product->name = $request->name;
         $product->description = $request->description;
         $product->price = (int) $request->price;
         $product->subcategory_id = $request->subcategory;
-
         $product->save();
 
-        return redirect()->route('product.index')->with('status', 'Produk berhasil diperbarui!.');
+        // Handle product images
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                // Store each image
+                $path = $image->store('public/images');
+
+                // Save image information to the database
+                ProductImage::create([
+                    'name' => $path, // You might want to store the actual filename or additional information
+                    'product_id' => $product->id,
+                ]);
+            }
+        }
+
+        return redirect()->route('product.index')->with('status', 'Produk berhasil diperbarui!');
     }
 
     /**
