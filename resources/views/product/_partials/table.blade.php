@@ -34,8 +34,8 @@
                         {{ $product->name }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">
-                        <img src="{{ url('/storage/upload/product/' . $product->image) }}" alt="{{ $product->name }}"
-                            class="w-20 h-20 object-cover">
+                        <img src="{{ url('/storage/upload/product/' . $productThumbnail->image) }}"
+                            alt="{{ $product->name }}" class="w-20 h-20 object-cover">
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">
                         {{ $product->subcategory->name }}

@@ -20,8 +20,9 @@ class ProductController extends Controller
     {
         $subcategories = Subcategory::all();
         $products = Product::paginate(10);
+        $productThumbnail = ProductImage::where('product_id', $products->first()->id)->first();
 
-        return view('product.index', compact('subcategories', 'products'));
+        return view('product.index', compact('subcategories', 'products', 'productThumbnail'));
     }
 
     /**
