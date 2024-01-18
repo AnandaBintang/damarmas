@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreProductRequest;
-use App\Http\Requests\UpdateProductRequest;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
@@ -20,6 +18,11 @@ class ProductController extends Controller
     {
         $subcategories = Subcategory::all();
         $products = Product::paginate(10);
+
+        if ($products->isEmpty()) {
+            return view('product.index', compact('subcategories', 'products'));
+        }
+
         $productThumbnail = ProductImage::where('product_id', $products->first()->id)->first();
 
         return view('product.index', compact('subcategories', 'products', 'productThumbnail'));
