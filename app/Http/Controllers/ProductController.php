@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 use App\Models\Product;
 use App\Models\Subcategory;
 
@@ -25,15 +27,33 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $subcategories = Subcategory::all();
+
+        return view('product._partials.create-product-form', compact('subcategories'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreProductRequest $request)
+    public function store(Request $request): RedirectResponse
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string|max:255',
+            'price' => 'required|numeric',
+            'subcategory' => 'required|exists:subcategories,id',
+        ]);
+
+        $product = new Product();
+
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->price = (int) $request->price;
+        $product->subcategory_id = $request->subcategory;
+
+        $product->save();
+
+        return redirect()->route('product.index')->with('status', 'Produk baru berhasil dibuat!.');
     }
 
     /**

@@ -16,25 +16,6 @@
         <div>
             <div class="flex items-center gap-4">
                 <x-primary-button onclick="showToast('{{ session('status') }}')">Tambah</x-primary-button>
-
-                @if (session('status'))
-                    <script>
-                        function showToast(message) {
-                            Swal.fire({
-                                toast: true,
-                                position: 'top-end',
-                                showConfirmButton: false,
-                                timer: 2000,
-                                icon: 'success',
-                                title: message
-                            });
-                        }
-
-                        document.addEventListener('DOMContentLoaded', function() {
-                            showToast('{{ session('status') }}');
-                        });
-                    </script>
-                @endif
             </div>
         </div>
     </form>
