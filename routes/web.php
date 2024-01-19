@@ -133,7 +133,12 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::resource('category', \App\Http\Controllers\CategoryController::class, [
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::delete('/admin/product-image/{productImage}', [\App\Http\Controllers\ProductImageController::class, 'destroy'])->name('product.removeImage');
+
+    Route::resource('admin/category', \App\Http\Controllers\CategoryController::class, [
         'names' => [
             'index' => 'category.index',
             'create' => 'category.create',
@@ -144,7 +149,7 @@ Route::middleware('auth')->group(function () {
             'destroy' => 'category.destroy',
         ]
     ]);
-    Route::resource('subcategory', \App\Http\Controllers\SubcategoryController::class, [
+    Route::resource('admin/subcategory', \App\Http\Controllers\SubcategoryController::class, [
         'names' => [
             'index' => 'subcategory.index',
             'create' => 'subcategory.create',
@@ -155,7 +160,7 @@ Route::middleware('auth')->group(function () {
             'destroy' => 'subcategory.destroy',
         ]
     ]);
-    Route::resource('product', \App\Http\Controllers\ProductController::class, [
+    Route::resource('admin/product', \App\Http\Controllers\ProductController::class, [
         'names' => [
             'index' => 'product.index',
             'create' => 'product.create',
@@ -166,13 +171,6 @@ Route::middleware('auth')->group(function () {
             'destroy' => 'product.destroy',
         ]
     ]);
-    Route::delete('/product-image/{productImage}', [\App\Http\Controllers\ProductImageController::class, 'destroy'])->name('product.removeImage');
-});
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 require __DIR__ . '/auth.php';
