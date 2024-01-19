@@ -1,13 +1,19 @@
-@foreach ($products as $product)
+@foreach ($data['products'] as $product)
     <div class="col">
         <a href="#">
             <div class="product card">
-                <img src="{{ $product['image'] }}" class="card-img-top" alt="Product">
-                <div class="card-body">
-                    <h5 class="card-title">{{ $product['title'] }}</h5>
-                    <p class="card-text fw-semibold text-success">Rp. {{ $product['price'] }}</p>
-                </div>
+                @foreach ($data['productThumbnail'] as $thumbnail)
+                    @if ($product->id == $thumbnail->product_id)
+                        <img src="{{ url('/storage/upload/product') . '/' . $thumbnail->image }}" class="card-img-top"
+                            alt="{{ $product->name }}">
+                    @break
+                @endif
+            @endforeach
+            <div class="card-body">
+                <h5 class="card-title">{{ $product->name }}</h5>
+                <p class="card-text fw-semibold text-success">Rp. {{ $product->price }}</p>
             </div>
-        </a>
-    </div>
+        </div>
+    </a>
+</div>
 @endforeach

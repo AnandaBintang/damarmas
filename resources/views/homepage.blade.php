@@ -34,122 +34,31 @@
     </header>
     <article class="container my-5 py-5">
         <h3 class="article-title">Produk Kami</h3>
-        <div class="category-section">
-            <h4 class="category-title mt-5 text-center">Digital Printing</h4>
-            <div class="digital-printing">
+        @foreach ($categories as $category)
+            <div class="category-section">
+                <h4 class="category-title mt-5 text-center">{{ $category->name }}</h4>
                 <ul class="honeycomb" lang="es">
-                    <li class="honeycomb-cell">
-                        <a href="{{ url('/product') }}">
-                            <img class="honeycomb-cell__image"
-                                src="https://i.pinimg.com/564x/96/54/2f/96542f9d0dbcf20d49b427a2b3db0701.jpg"
-                                alt="Digital Printing Damarmas">
-                            <div class="honeycomb-cell__title">Digital Printing</div>
-                        </a>
-                    </li>
-                    <li class="honeycomb-cell">
-                        <a href="{{ url('/product') }}">
-                            <img class="honeycomb-cell__image"
-                                src="https://i.pinimg.com/564x/bf/cc/d6/bfccd61e1bc94598b1123431e84be1d3.jpg"
-                                alt="UV LED Printer Damarmas">
-                            <div class="honeycomb-cell__title">UV LED Printer</div>
-                        </a>
-                    </li>
-                    <li class="honeycomb-cell">
-                        <a href="{{ url('/product') }}">
-                            <img class="honeycomb-cell__image"
-                                src="https://i.pinimg.com/564x/58/d3/85/58d3857f3c6e0d52cdc10fb954ac09fd.jpg"
-                                alt="Printer Warna A3+ Damarmas">
-                            <div class="honeycomb-cell__title">Printer Warna A3+</div>
-                        </a>
-                    </li>
-                    <li class="honeycomb-cell">
-                        <a href="{{ url('/product') }}">
-                            <img class="honeycomb-cell__image"
-                                src="https://i.pinimg.com/564x/0e/14/8d/0e148da02940c53fe7057b6300fa6312.jpg"
-                                alt="Printer ID Card Damarmas">
-                            <div class="honeycomb-cell__title">Printer ID Card</div>
-                        </a>
-                    </li>
-                    <li class="honeycomb-cell">
-                        <a href="{{ url('/product') }}">
-                            <img class="honeycomb-cell__image"
-                                src="https://i.pinimg.com/564x/0e/14/8d/0e148da02940c53fe7057b6300fa6312.jpg"
-                                alt="Print & Cut Damarmas">
-                            <div class="honeycomb-cell__title">Print & Cut</div>
-                        </a>
-                    </li>
-                    <li class="honeycomb-cell">
-                        <img class="honeycomb-cell__image"
-                            src="https://i.pinimg.com/564x/63/f9/d6/63f9d6f05d451e6890d410262fba7812.jpg"
-                            alt="Printer Plotter Teknikal Damarmas">
-                        <div class="honeycomb-cell__title">Printer Plotter Teknikal</div>
-                    </li>
-                    <li class="honeycomb-cell">
-                        <img class="honeycomb-cell__image"
-                            src="https://i.pinimg.com/564x/ed/4f/db/ed4fdb35e22a5b09b50e93f391ee5c21.jpg"
-                            alt="Printer 3D Damarmas">
-                        <div class="honeycomb-cell__title">Printer 3D</div>
-                    </li>
+                    @foreach ($subcategories as $subcategory)
+                        @if ($subcategory->category_id == $category->id)
+                            <li class="honeycomb-cell">
+                                <a href="{{ route('products', ['id' => $subcategory->id]) }}">
+                                    <img class="honeycomb-cell__image"
+                                        src="{{ url('/storage/upload/subcategory') . '/' . $subcategory->image }}"
+                                        alt="{{ $subcategory->name }} Damarmas">
+                                    <div class="honeycomb-cell__title">{{ $subcategory->name }}</div>
+                                </a>
+                            </li>
+                        @endif
+                    @endforeach
                     <li class="honeycomb-cell honeycomb__placeholder"></li>
                 </ul>
             </div>
-        </div>
-        <div class="category-section">
-            <h4 class="category-title text-center">Industry</h4>
-            <div class="industry">
-                <ul class="honeycomb" lang="es">
-                    <li class="honeycomb-cell">
-                        <img class="honeycomb-cell__image"
-                            src="https://i.pinimg.com/564x/96/54/2f/96542f9d0dbcf20d49b427a2b3db0701.jpg">
-                        <div class="honeycomb-cell__title">Digital Printing</div>
-                    </li>
-                    <li class="honeycomb-cell">
-                        <img class="honeycomb-cell__image"
-                            src="https://i.pinimg.com/564x/bf/cc/d6/bfccd61e1bc94598b1123431e84be1d3.jpg">
-                        <div class="honeycomb-cell__title">UV LED Printer</div>
-                    </li>
-                    <li class="honeycomb-cell">
-                        <img class="honeycomb-cell__image"
-                            src="https://i.pinimg.com/564x/58/d3/85/58d3857f3c6e0d52cdc10fb954ac09fd.jpg">
-                        <div class="honeycomb-cell__title">Printer Warna A3+</div>
-                    </li>
-                    <li class="honeycomb-cell honeycomb__placeholder"></li>
-                </ul>
-            </div>
-        </div>
-        <div class="category-section">
-            <h4 class="category-title text-center">Sablon Digital</h4>
-            <div class="sablon-digital">
-                <ul class="honeycomb" lang="es">
-                    <li class="honeycomb-cell">
-                        <img class="honeycomb-cell__image"
-                            src="https://i.pinimg.com/564x/96/54/2f/96542f9d0dbcf20d49b427a2b3db0701.jpg">
-                        <div class="honeycomb-cell__title">Digital Printing</div>
-                    </li>
-                    <li class="honeycomb-cell">
-                        <img class="honeycomb-cell__image"
-                            src="https://i.pinimg.com/564x/bf/cc/d6/bfccd61e1bc94598b1123431e84be1d3.jpg">
-                        <div class="honeycomb-cell__title">UV LED Printer</div>
-                    </li>
-                    <li class="honeycomb-cell">
-                        <img class="honeycomb-cell__image"
-                            src="https://i.pinimg.com/564x/58/d3/85/58d3857f3c6e0d52cdc10fb954ac09fd.jpg">
-                        <div class="honeycomb-cell__title">Printer Warna A3+</div>
-                    </li>
-                    <li class="honeycomb-cell">
-                        <img class="honeycomb-cell__image"
-                            src="https://i.pinimg.com/564x/0e/14/8d/0e148da02940c53fe7057b6300fa6312.jpg">
-                        <div class="honeycomb-cell__title">Printer ID Card</div>
-                    </li>
-                    <li class="honeycomb-cell honeycomb__placeholder"></li>
-                </ul>
-            </div>
-        </div>
+        @endforeach
     </article>
     <article class="container my-5 py-5">
         <h3 class="article-title">Produk Terlaris</h3>
         <div class="row row-cols-2 row-cols-lg-4 g-4 my-3">
-            <x-product-card :products=$products></x-product-card>
+            {{-- <x-product-card :products=$products></x-product-card> --}}
         </div>
     </article>
     <article class="container my-5 py-5">

@@ -1,6 +1,11 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\GuestController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SubcategoryController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductImageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,119 +19,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $meta = [
-        'title' => 'Home',
-        'description' => 'This is home page',
-        'keywords' => 'damarmas, home, page, printer, running text',
-    ];
-    $products = [
-        [
-            'title' => 'Product 1',
-            'price' => 1000,
-            'image' => 'https://i.pcmag.com/imagery/roundups/06msR0ZNV3Oc2GfpqCu9AcT-22..v1644880252.jpg',
-        ],
-        [
-            'title' => 'Product 2',
-            'price' => 2000,
-            'image' => 'https://i.pcmag.com/imagery/roundups/06msR0ZNV3Oc2GfpqCu9AcT-22..v1644880252.jpg',
-        ],
-        [
-            'title' => 'Product 3',
-            'price' => 3000,
-            'image' => 'https://i.pcmag.com/imagery/roundups/06msR0ZNV3Oc2GfpqCu9AcT-22..v1644880252.jpg',
-        ],
-        [
-            'title' => 'Product 4',
-            'price' => 4000,
-            'image' => 'https://i.pcmag.com/imagery/roundups/06msR0ZNV3Oc2GfpqCu9AcT-22..v1644880252.jpg',
-        ],
-    ];
-    return view('homepage', compact('meta', 'products'));
-});
-
-Route::get('/product', function () {
-    $meta = [
-        'title' => 'Product',
-        'description' => 'This is product page',
-        'keywords' => 'damarmas, product, page, printer, running text',
-    ];
-    $products = [
-        [
-            'title' => 'Product 1',
-            'price' => 1000,
-            'image' => 'https://i.pcmag.com/imagery/roundups/06msR0ZNV3Oc2GfpqCu9AcT-22..v1644880252.jpg',
-        ],
-        [
-            'title' => 'Product 2',
-            'price' => 2000,
-            'image' => 'https://i.pcmag.com/imagery/roundups/06msR0ZNV3Oc2GfpqCu9AcT-22..v1644880252.jpg',
-        ],
-        [
-            'title' => 'Product 3',
-            'price' => 3000,
-            'image' => 'https://i.pcmag.com/imagery/roundups/06msR0ZNV3Oc2GfpqCu9AcT-22..v1644880252.jpg',
-        ],
-        [
-            'title' => 'Product 4',
-            'price' => 4000,
-            'image' => 'https://i.pcmag.com/imagery/roundups/06msR0ZNV3Oc2GfpqCu9AcT-22..v1644880252.jpg',
-        ],
-        [
-            'title' => 'Product 5',
-            'price' => 5000,
-            'image' => 'https://i.pcmag.com/imagery/roundups/06msR0ZNV3Oc2GfpqCu9AcT-22..v1644880252.jpg'
-        ],
-        [
-            'title' => 'Product 6',
-            'price' => 6000,
-            'image' => 'https://i.pcmag.com/imagery/roundups/06msR0ZNV3Oc2GfpqCu9AcT-22..v1644880252.jpg'
-        ],
-        [
-            'title' => 'Product 7',
-            'price' => 7000,
-            'image' => 'https://i.pcmag.com/imagery/roundups/06msR0ZNV3Oc2GfpqCu9AcT-22..v1644880252.jpg'
-        ],
-        [
-            'title' => 'Product 8',
-            'price' => 8000,
-            'image' => 'https://i.pcmag.com/imagery/roundups/06msR0ZNV3Oc2GfpqCu9AcT-22..v1644880252.jpg'
-        ],
-        [
-            'title' => 'Product 9',
-            'price' => 9000,
-            'image' => 'https://i.pcmag.com/imagery/roundups/06msR0ZNV3Oc2GfpqCu9AcT-22..v1644880252.jpg'
-        ],
-        [
-            'title' => 'Product 10',
-            'price' => 10000,
-            'image' => 'https://i.pcmag.com/imagery/roundups/06msR0ZNV3Oc2GfpqCu9AcT-22..v1644880252.jpg'
-        ],
-    ];
-    $categories = [
-        ['name' => 'Category 1'],
-        ['name' => 'Category 2'],
-        ['name' => 'Category 3'],
-        ['name' => 'Category 4'],
-        ['name' => 'Category 5'],
-        ['name' => 'Category 6'],
-        ['name' => 'Category 7'],
-        ['name' => 'Category 8'],
-        ['name' => 'Category 9'],
-        ['name' => 'Category 10'],
-    ];
-    return view('product', compact('meta', 'products', 'categories'));
-});
-
-Route::get('/product/detail', function () {
-    $meta = [
-        'title' => 'Product',
-        'description' => 'This is product page',
-        'keywords' => 'damarmas, product, page, printer, running text',
-    ];
-
-    return view('product-detail', compact('meta'));
-});
+Route::get('/', [GuestController::class, 'index'])->name('homepage');
+Route::get('/products/{id}', [GuestController::class, 'show'])->name('products');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -136,9 +30,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::delete('/admin/product-image/{productImage}', [\App\Http\Controllers\ProductImageController::class, 'destroy'])->name('product.removeImage');
+    Route::delete('/admin/product-image/{productImage}', [ProductImageController::class, 'destroy'])->name('product.removeImage');
 
-    Route::resource('admin/category', \App\Http\Controllers\CategoryController::class, [
+    Route::resource('admin/category', CategoryController::class, [
         'names' => [
             'index' => 'category.index',
             'create' => 'category.create',
@@ -149,7 +43,7 @@ Route::middleware('auth')->group(function () {
             'destroy' => 'category.destroy',
         ]
     ]);
-    Route::resource('admin/subcategory', \App\Http\Controllers\SubcategoryController::class, [
+    Route::resource('admin/subcategory', SubcategoryController::class, [
         'names' => [
             'index' => 'subcategory.index',
             'create' => 'subcategory.create',
@@ -160,7 +54,7 @@ Route::middleware('auth')->group(function () {
             'destroy' => 'subcategory.destroy',
         ]
     ]);
-    Route::resource('admin/product', \App\Http\Controllers\ProductController::class, [
+    Route::resource('admin/product', ProductController::class, [
         'names' => [
             'index' => 'product.index',
             'create' => 'product.create',

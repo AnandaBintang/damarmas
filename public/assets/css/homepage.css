@@ -16,6 +16,10 @@
     margin-bottom: 5rem;
 }
 
+.category-section:nth-child(n + 3) {
+    margin-top: 10rem;
+}
+
 .category-title {
     margin-top: 10rem;
 }
