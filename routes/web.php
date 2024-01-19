@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [GuestController::class, 'index'])->name('homepage');
 Route::get('/products/{id}', [GuestController::class, 'show'])->name('products');
+Route::get('/product-details/{id}', [GuestController::class, 'showProductDetail'])->name('product-details');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

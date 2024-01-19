@@ -1,6 +1,6 @@
 @foreach ($data['products'] as $product)
     <div class="col">
-        <a href="#">
+        <a href="{{ route('product-details', ['id' => $product->id]) }}">
             <div class="product card">
                 @foreach ($data['productThumbnail'] as $thumbnail)
                     @if ($product->id == $thumbnail->product_id)

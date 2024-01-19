@@ -37,4 +37,17 @@ class GuestController extends Controller
 
         return view('guest.product', compact('data'));
     }
+
+    public function showProductDetail($id)
+    {
+        $product = Product::find($id);
+        $productImages = ProductImage::where('product_id', $id)->get();
+
+        $data = [
+            'product' => $product,
+            'productImages' => $productImages,
+        ];
+
+        return view('guest.product-detail', compact('data'));
+    }
 }
