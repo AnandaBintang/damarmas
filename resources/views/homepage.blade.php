@@ -103,19 +103,6 @@
     </article>
     <article class="container my-5 py-5">
         <h3 class="article-title">Damarmas</h3>
-        <p class="my-3 text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum voluptatem
-            voluptate
-            mollitia ad? Id est quisquam possimus nostrum accusamus aut sapiente nobis, cupiditate minus. Iure
-            voluptatum similique reiciendis itaque aspernatur amet architecto ex? Aliquam explicabo vero inventore,
-            repellat laboriosam fugit ab maiores veniam voluptatum quod amet aspernatur in hic aperiam! Corrupti
-            incidunt ipsa voluptatibus fugit explicabo, sapiente quidem, unde quisquam hic soluta deserunt
-            cupiditate voluptatum! Obcaecati alias cum a autem voluptate. Quia perferendis non, porro ab ex
-            repudiandae dignissimos molestias est amet autem nesciunt voluptate perspiciatis velit. Tempore
-            molestias quae, voluptas maiores eligendi harum, fugit illum voluptates, nobis quidem commodi!</p>
-        <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat magni neque
-            ratione iure obcaecati sunt dolorem quidem corporis quam laudantium praesentium aut molestiae itaque
-            officia pariatur expedita accusamus, ipsa commodi porro quae incidunt quibusdam molestias. Quisquam
-            similique fugiat quod ducimus veritatis laudantium at, earum maiores mollitia harum enim reiciendis
-            exercitationem?</p>
+        {!! $data['about']->description !!}
     </article>
 </x-shop-layout>
