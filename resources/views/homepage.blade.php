@@ -34,11 +34,11 @@
     </header>
     <article class="container my-5 py-5">
         <h3 class="article-title">Produk Kami</h3>
-        @foreach ($categories as $category)
+        @foreach ($data['categories'] as $category)
             <div class="category-section">
                 <h4 class="category-title mt-5 text-center">{{ $category->name }}</h4>
                 <ul class="honeycomb" lang="es">
-                    @foreach ($subcategories as $subcategory)
+                    @foreach ($data['subcategories'] as $subcategory)
                         @if ($subcategory->category_id == $category->id)
                             <li class="honeycomb-cell">
                                 <a href="{{ route('products', ['id' => $subcategory->id]) }}">
@@ -56,9 +56,9 @@
         @endforeach
     </article>
     <article class="container my-5 py-5">
-        <h3 class="article-title">Produk Terlaris</h3>
+        <h3 class="article-title">Produk Terbaru</h3>
         <div class="row row-cols-2 row-cols-lg-4 g-4 my-3">
-            {{-- <x-product-card :products=$products></x-product-card> --}}
+            <x-product-card :data=$data></x-product-card>
         </div>
     </article>
     <article class="container my-5 py-5">

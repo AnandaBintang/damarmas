@@ -14,8 +14,21 @@ class GuestController extends Controller
     {
         $categories = Category::all();
         $subcategories = Subcategory::all();
+        $products = Product::orderBy('created_at', 'desc')->take(4)->get();
+        $productThumbnail = null;
 
-        return view('homepage', compact('categories', 'subcategories'));
+        foreach ($products as $product) {
+            $productThumbnail = ProductImage::all();
+        }
+
+        $data = [
+            'categories' => $categories,
+            'subcategories' => $subcategories,
+            'products' => $products,
+            'productThumbnail' => $productThumbnail,
+        ];
+
+        return view('homepage', compact('data'));
     }
 
     public function show($id)
@@ -23,16 +36,17 @@ class GuestController extends Controller
         $subcategories = Subcategory::all();
         $subcategory = Subcategory::find($id);
         $products = Product::where('subcategory_id', $id)->get();
+        $productThumbnail = null;
 
         foreach ($products as $product) {
             $productThumbnail = ProductImage::all();
         }
 
         $data = [
-            'products' => $products,
-            'productThumbnail' => $productThumbnail,
             'subcategory' => $subcategory,
             'subcategories' => $subcategories,
+            'products' => $products,
+            'productThumbnail' => $productThumbnail,
         ];
 
         return view('guest.product', compact('data'));
