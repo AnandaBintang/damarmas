@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubcategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductImageController;
+use App\Http\Controllers\AboutController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -64,6 +65,17 @@ Route::middleware('auth')->group(function () {
             'edit' => 'product.edit',
             'update' => 'product.update',
             'destroy' => 'product.destroy',
+        ]
+    ]);
+    Route::resource('admin/about', AboutController::class, [
+        'names' => [
+            'index' => 'about.index',
+            'create' => 'about.create',
+            'store' => 'about.store',
+            'show' => 'about.show',
+            'edit' => 'about.edit',
+            'update' => 'about.update',
+            'destroy' => 'about.destroy',
         ]
     ]);
 });

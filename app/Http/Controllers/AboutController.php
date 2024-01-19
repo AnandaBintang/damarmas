@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreAboutRequest;
-use App\Http\Requests\UpdateAboutRequest;
 use App\Models\About;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 
 class AboutController extends Controller
 {
@@ -13,7 +14,9 @@ class AboutController extends Controller
      */
     public function index()
     {
-        //
+        $about = About::first();
+
+        return view('about.index', compact('about'));
     }
 
     /**
@@ -51,9 +54,31 @@ class AboutController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateAboutRequest $request, About $about)
+    public function update(Request $request): RedirectResponse
     {
-        //
+        $request->validate([
+            'description' => 'required|string',
+            'phone' => 'required|string',
+            'email' => 'required|email',
+            'address' => 'required|string',
+            'facebook' => 'required|string',
+            'instagram' => 'required|string',
+            'whatsapp' => 'required|string',
+        ]);
+
+        $about = About::first();
+
+        $about->description = $request->description;
+        $about->phone = $request->phone;
+        $about->email = $request->email;
+        $about->address = $request->address;
+        $about->facebook = $request->facebook;
+        $about->instagram = $request->instagram;
+        $about->whatsapp = $request->whatsapp;
+
+        $about->save();
+
+        return redirect()->route('about.index')->with('status', 'Data about berhasil diubah!.');
     }
 
     /**

@@ -46,6 +46,10 @@
     <script src="https://cdn.datatables.net/1.13.7/js/dataTables.tailwindcss.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <script src="https://cdn.tiny.cloud/1/8b9z038wsom8bg2ec7zn4u1t34k2etuh9xcau4ykdqkcwjy8/tinymce/6/tinymce.min.js"
+        referrerpolicy="origin"></script>
+
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"
         integrity="sha512-GWzVrcGlo0TxTRvz9ttioyYJ+Wwk9Ck0G81D+eO63BaqHaJ3YZX9wuqjwgfcV/MrB2PhaVX9DkYVhbFpStnqpQ=="
@@ -57,20 +61,11 @@
             paging: false,
         });
 
-        function deleteData(id) {
-            Swal.fire({
-                title: "Anda yakin ingin menghapus data?",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#f52222", // Warna merah
-                confirmButtonText: "Hapus",
-                denyButtonText: "Jangan Hapus!"
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    document.getElementById(`deleteForm-${id}`).submit();
-                }
-            });
-        }
+        tinymce.init({
+            selector: '#description',
+            plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+        });
     </script>
 
     <script>
@@ -152,7 +147,6 @@
             }
         }
 
-
         function removeImageField(input, imagePreview, button) {
             // Remove the div containing the input field, image preview, and remove button
             var container = document.getElementById('image-upload-container');
@@ -163,6 +157,21 @@
             if (inputFields.length === 1) {
                 inputFields[0].nextElementSibling.nextElementSibling.disabled = true;
             }
+        }
+
+        function deleteData(id) {
+            Swal.fire({
+                title: "Anda yakin ingin menghapus data?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#f52222", // Warna merah
+                confirmButtonText: "Hapus",
+                denyButtonText: "Jangan Hapus!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById(`deleteForm-${id}`).submit();
+                }
+            });
         }
     </script>
 
