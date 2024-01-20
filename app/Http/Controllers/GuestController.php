@@ -31,7 +31,7 @@ class GuestController extends Controller
             'products' => $products,
             'productThumbnail' => $productThumbnail,
             'about' => $about,
-            'testimonial' => $testimonial,
+            'testimonials' => $testimonial,
         ];
 
         return view('homepage', compact('data'));
