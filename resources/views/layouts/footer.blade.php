@@ -51,19 +51,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
-                    <div class="footer-widget">
-                        <div class="footer-widget-heading">
-                            <h3>Yang mungkin anda butuhkan</h3>
-                        </div>
-                        <ul>
-                            <li><a href="#">Beranda</a></li>
-                            <li><a href="#">Cara Pembelian</a></li>
-                            <li><a href="#">Servis Kami</a></li>
-                            <li><a href="#">Kontak Kami</a></li>
-                        </ul>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
