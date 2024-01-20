@@ -7,6 +7,7 @@ use App\Http\Controllers\SubcategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductImageController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\TestimonialController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -76,6 +77,17 @@ Route::middleware('auth')->group(function () {
             'edit' => 'about.edit',
             'update' => 'about.update',
             'destroy' => 'about.destroy',
+        ]
+    ]);
+    Route::resource('admin/testimonial', TestimonialController::class, [
+        'names' => [
+            'index' => 'testimonial.index',
+            'create' => 'testimonial.create',
+            'store' => 'testimonial.store',
+            'show' => 'testimonial.show',
+            'edit' => 'testimonial.edit',
+            'update' => 'testimonial.update',
+            'destroy' => 'testimonial.destroy',
         ]
     ]);
 });

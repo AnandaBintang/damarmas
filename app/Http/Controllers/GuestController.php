@@ -8,6 +8,7 @@ use App\Models\Subcategory;
 use App\Models\Product;
 use App\Models\ProductImage;
 use App\Models\About;
+use App\Models\Testimonial;
 
 class GuestController extends Controller
 {
@@ -18,6 +19,7 @@ class GuestController extends Controller
         $products = Product::orderBy('created_at', 'desc')->take(4)->get();
         $productThumbnail = null;
         $about = About::first();
+        $testimonial = Testimonial::all();
 
         foreach ($products as $product) {
             $productThumbnail = ProductImage::all();
@@ -29,6 +31,7 @@ class GuestController extends Controller
             'products' => $products,
             'productThumbnail' => $productThumbnail,
             'about' => $about,
+            'testimonial' => $testimonial,
         ];
 
         return view('homepage', compact('data'));

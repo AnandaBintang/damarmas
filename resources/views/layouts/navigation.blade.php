@@ -36,6 +36,11 @@
                         {{ __('Produk') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('testimonial.index')" :active="request()->routeIs('testimonial.index')">
+                        {{ __('Testimonial') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->
@@ -109,6 +114,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('product.index')" :active="request()->routeIs('product.index')">
                 {{ __('Produk') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('testimonial.index')" :active="request()->routeIs('testimonial.index')">
+                {{ __('Testimonial') }}
             </x-responsive-nav-link>
         </div>
 
