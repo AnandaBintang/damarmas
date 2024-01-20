@@ -11,7 +11,7 @@
                         <i class="fas fa-map-marker-alt"></i>
                         <div class="cta-text">
                             <h4>Alamat Kami</h4>
-                            <span>1010 Avenue, sw 54321, chandigarh</span>
+                            <span>{{ $about->address }}</span>
                         </div>
                     </div>
                 </div>
@@ -20,7 +20,7 @@
                         <i class="fas fa-phone"></i>
                         <div class="cta-text">
                             <h4>Hubungi Kami</h4>
-                            <span>9876543210 0</span>
+                            <span>{{ $about->phone }}</span>
                         </div>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                         <i class="far fa-envelope-open"></i>
                         <div class="cta-text">
                             <h4>Email Kami</h4>
-                            <span>mail@info.com</span>
+                            <span>{{ $about->email }}</span>
                         </div>
                     </div>
                 </div>
@@ -43,16 +43,11 @@
                             <a href="index.html"><img src="{{ asset('img/logo.png') }}" class="img-fluid"
                                     alt="logo"></a>
                         </div>
-                        <div class="footer-text">
-                            <p>Lorem ipsum dolor sit amet, consec tetur adipisicing elit, sed do eiusmod tempor
-                                incididuntut consec tetur adipisicing
-                                elit,Lorem ipsum dolor sit amet.</p>
-                        </div>
                         <div class="footer-social-icon">
                             <span>Ikuti Kami</span>
-                            <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                            <a href="{{ $about->facebook }}"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="{{ $about->instagram }}"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="{{ $about->whatsapp }}"><i class="fa-brands fa-whatsapp"></i></a>
                         </div>
                     </div>
                 </div>
@@ -83,13 +78,6 @@
                 </div>
                 <div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">
                     <div class="footer-menu">
-                        <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Terms</a></li>
-                            <li><a href="#">Privacy</a></li>
-                            <li><a href="#">Policy</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
                     </div>
                 </div>
             </div>
