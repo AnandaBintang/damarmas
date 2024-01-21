@@ -9,6 +9,7 @@ use App\Models\Product;
 use App\Models\ProductImage;
 use App\Models\About;
 use App\Models\Testimonial;
+use App\Models\Banner;
 
 class GuestController extends Controller
 {
@@ -20,6 +21,7 @@ class GuestController extends Controller
         $productThumbnail = null;
         $about = About::first();
         $testimonial = Testimonial::all();
+        $banner = Banner::orderBy('created_at', 'asc')->get();
 
         foreach ($products as $product) {
             $productThumbnail = ProductImage::all();
@@ -32,6 +34,7 @@ class GuestController extends Controller
             'productThumbnail' => $productThumbnail,
             'about' => $about,
             'testimonials' => $testimonial,
+            'banners' => $banner,
         ];
 
         return view('homepage', compact('data'));

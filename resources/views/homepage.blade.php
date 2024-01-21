@@ -2,23 +2,21 @@
     <header class="container my-5 mx-auto">
         <div id="carouselExampleIndicators" class="carousel slide">
             <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
+                @foreach ($data['banners'] as $banner)
+                    <button type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide-to="{{ $loop->iteration - 1 }}" class="active" aria-current="true"
+                        aria-label="Slide {{ $loop->iteration }}"></button>
+                @endforeach
             </div>
             <div class="carousel-inner rounded-5">
-                <div class="carousel-item active">
-                    <img src="{{ asset('img/image-slider/banner.png') }}" class="d-block w-100" alt="Banner">
-                </div>
-                <div class="carousel-item">
-                    <img src="{{ asset('img/image-slider/banner.png') }}" class="d-block w-100" alt="Banner">
-                </div>
-                <div class="carousel-item">
-                    <img src="{{ asset('img/image-slider/banner.png') }}" class="d-block w-100" alt="Banner">
-                </div>
+                @foreach ($data['banners'] as $banner)
+                    <a href="{{ $banner->link }}">
+                        <div class="carousel-item active">
+                            <img src="{{ url('storage/upload/banner') . '/' . $banner->image }}" class="d-block w-100"
+                                alt="{{ $banner->title }}">
+                        </div>
+                    </a>
+                @endforeach
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
                 data-bs-slide="prev">
