@@ -34,8 +34,13 @@
                         {{ $product->name }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">
-                        <img src="{{ url('/storage/upload/product/' . $productThumbnail->image) }}"
-                            alt="{{ $product->name }}" class="w-20 h-20 object-cover">
+                        @foreach ($productThumbnail as $thumbnail)
+                            @if ($thumbnail->product_id == $product->id)
+                                <img src="{{ url('/storage/upload/product/' . $thumbnail->image) }}"
+                                    alt="{{ $product->name }}" class="w-20 h-20 object-cover rounded">
+                            @endif
+                        @endforeach
+
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">
                         {{ $product->subcategory->name }}

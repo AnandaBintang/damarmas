@@ -23,7 +23,11 @@ class ProductController extends Controller
             return view('product.index', compact('subcategories', 'products'));
         }
 
-        $productThumbnail = ProductImage::where('product_id', $products->first()->id)->first();
+        $productThumbnail = [];
+
+        foreach ($products as $product) {
+            $productThumbnail[$product->id] = ProductImage::where('product_id', $product->id)->first();
+        }
 
         return view('product.index', compact('subcategories', 'products', 'productThumbnail'));
     }
