@@ -17,9 +17,9 @@ class BannerFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->sentence,
-            'image' => $this->faker->imageUrl(),
-            'link' => $this->faker->url,
+            'title' => 'Damarmas Nusantara',
+            'image' => 'default.png',
+            'link' => '#',
         ];
     }
 }
