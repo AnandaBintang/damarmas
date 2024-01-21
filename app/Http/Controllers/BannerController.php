@@ -35,6 +35,7 @@ class BannerController extends Controller
     {
         $request->validate([
             'title' => 'required|string',
+            'link' => 'nullable|string',
             'image' => 'required|image',
         ]);
 
@@ -65,17 +66,44 @@ class BannerController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Banner $banner)
+    public function edit(Request $request)
     {
-        //
+        $banner = Banner::findOrFail($request->banner);
+
+        return view('banner.edit', compact('banner'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateBannerRequest $request, Banner $banner)
+    public function update(Request $request): RedirectResponse
     {
-        //
+        $request->validate([
+            'title' => 'required|string',
+            'link' => 'nullable|string',
+            'image' => 'nullable|image',
+        ]);
+
+        $banner = Banner::findOrFail($request->banner);
+        $banner->title = $request->title;
+        $banner->link = $request->link;
+
+        if ($request->hasFile('image')) {
+            // Delete old image
+            if ($banner->image) {
+                unlink(public_path('storage/upload/banner/' . $banner->image));
+            }
+
+            // Upload new image
+            $image = $request->file('image');
+            $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('storage/upload/banner'), $imageName);
+            $banner->image = $imageName;
+        }
+
+        $banner->save();
+
+        return redirect()->route('banner.index')->with('status', 'Banner berhasil diperbarui!');
     }
 
     /**

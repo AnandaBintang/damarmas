@@ -1,6 +1,5 @@
 <div class="p-6 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 w-full">
-    <form action="{{ route('subcategory.update', $subcategory->id) }}" method="POST" class="space-y-4"
-        enctype="multipart/form-data">
+    <form action="{{ route('banner.update', $banner->id) }}" method="POST" class="space-y-4" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div>
@@ -8,51 +7,55 @@
                 <div class="w-full md:w-1/3 md:pr-4 mb-4 md:mb-0">
                     <div class="my-3">
                         <label for="thumbnail" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                            Thumbnail Sub Kategori
+                            Gambar Banner
                         </label>
                         <div class="flex items-center">
                             <div class="relative">
-                                <img id="thumbnail-preview"
-                                    src="{{ url('/storage/upload/subcategory/' . $subcategory->image) }}"
-                                    alt="{{ $subcategory->name }}" accept="image/*"
+                                <img id="thumbnail-preview" src="{{ url('/storage/upload/banner/' . $banner->image) }}"
+                                    alt="{{ $banner->title }}" accept="image/*"
                                     class="object-cover object-center rounded-xl w-auto h-auto">
                                 <label for="thumbnail"
                                     class="absolute top-0 right-0 p-2 bg-gray-600 rounded-full cursor-pointer">
                                     <i class="fas fa-pencil-alt text-white"></i>
-                                    <input type="file" class="hidden" id="thumbnail" name="thumbnail"
-                                        value="{{ old('image') ?? $subcategory->image }}">
+                                    <input type="file" class="hidden" id="thumbnail" name="image"
+                                        value="{{ old('image') ?? $banner->image }}">
                                 </label>
                             </div>
                         </div>
-
+                        @error('image')
+                            <div class="text-red-500 mt-2 text-sm">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                 </div>
 
                 <div class="w-full grid md:w-2/3 items-center">
                     <div>
-                        <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Nama
-                            Sub Kategori</label>
-                        <input type="text" class="form-input mt-1 block w-full" id="name" name="name"
-                            placeholder="Masukkan nama kategori" value="{{ old('name') ?? $subcategory->name }}">
+                        <label for="title" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Judul
+                            Banner</label>
+                        <input type="text" class="form-input mt-1 block w-full" id="title" name="title"
+                            placeholder="Masukkan judul banner" value="{{ old('title') ?? $banner->title }}">
+                        @error('title')
+                            <div class="text-red-500 mt-2 text-sm">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                     <div>
-                        <label for="name"
+                        <label for="link"
                             class="block text-sm font-medium text-gray-700 dark:text-gray-300">Termasuk Kategori</label>
-                        <select name="category" id="category" class="form-select mt-1 block w-full">
-                            @foreach ($categories as $category)
-                                <option value="{{ $category->id }}"
-                                    {{ $category->id == $subcategory->category_id ? 'selected' : '' }}>
-                                    {{ $category->name }}</option>
-                            @endforeach
-                        </select>
+                        <input type="text" class="form-input mt-1 block w-full" id="link" name="link"
+                            placeholder="Masukkan direct link banner (isi dengan # jika tidak ada)"
+                            value="{{ old('link') ?? $banner->link }}">
+                        @error('link')
+                            <div class="text-red-500 mt-2 text-sm">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                 </div>
             </div>
-            @if ($errors->any())
-                <div class="text-red-500 mt-2 text-sm">
-                    {{ implode('', $errors->all(':message')) }}
-                </div>
-            @endif
         </div>
         <div>
             <div class="flex items-center gap-4">
