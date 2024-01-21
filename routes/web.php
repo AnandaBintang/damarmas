@@ -8,6 +8,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductImageController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\BannerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -88,6 +89,17 @@ Route::middleware('auth')->group(function () {
             'edit' => 'testimonial.edit',
             'update' => 'testimonial.update',
             'destroy' => 'testimonial.destroy',
+        ]
+    ]);
+    Route::resource('admin/banner', BannerController::class, [
+        'names' => [
+            'index' => 'banner.index',
+            'create' => 'banner.create',
+            'store' => 'banner.store',
+            'show' => 'banner.show',
+            'edit' => 'banner.edit',
+            'update' => 'banner.update',
+            'destroy' => 'banner.destroy',
         ]
     ]);
 });

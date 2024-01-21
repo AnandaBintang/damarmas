@@ -41,6 +41,11 @@
                         {{ __('Testimonial') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('banner.index')" :active="request()->routeIs('banner.index')">
+                        {{ __('Banner') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->
@@ -117,6 +122,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('testimonial.index')" :active="request()->routeIs('testimonial.index')">
                 {{ __('Testimonial') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('banner.index')" :active="request()->routeIs('banner.index')">
+                {{ __('Banner') }}
             </x-responsive-nav-link>
         </div>
 
