@@ -10,11 +10,11 @@
                 @include('banner._partials.table')
             </div>
         </div>
-        {{-- <div class="max-w-xl mx-auto sm:px-6 lg:px-8 my-3">
+        <div class="max-w-xl mx-auto sm:px-6 lg:px-8 my-3">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 @include('banner._partials.add-banner-form')
             </div>
-        </div> --}}
+        </div>
 
     </div>
 </x-app-layout>

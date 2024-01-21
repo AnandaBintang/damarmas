@@ -34,7 +34,7 @@
                         {{ $banner->title }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">
-                        <img src="{{ url('/storage/upload/subcategory/' . $banner->image) }}" alt="{{ $banner->name }}"
+                        <img src="{{ url('/storage/upload/banner/' . '/' . $banner->image) }}" alt="{{ $banner->name }}"
                             class="w-20 h-20 object-cover">
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">
