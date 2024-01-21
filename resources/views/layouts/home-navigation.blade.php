@@ -15,9 +15,7 @@
                         Videotron
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li><a class="dropdown-item" href="#">link</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown mx-4">
@@ -26,9 +24,7 @@
                         Lighting
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li><a class="dropdown-item" href="#">link</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown mx-4">
@@ -37,9 +33,7 @@
                         Sparepart
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li><a class="dropdown-item" href="#">link</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown mx-4">
@@ -48,9 +42,7 @@
                         Service
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li><a class="dropdown-item" href="#">link</a></li>
                     </ul>
                 </li>
             </ul>

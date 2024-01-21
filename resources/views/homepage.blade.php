@@ -32,32 +32,44 @@
     </header>
     <article class="container my-5 py-5">
         <h3 class="article-title">Produk Kami</h3>
-        @foreach ($data['categories'] as $category)
-            <div class="category-section">
-                <h4 class="category-title mt-5 text-center">{{ $category->name }}</h4>
-                <ul class="honeycomb" lang="es">
-                    @foreach ($data['subcategories'] as $subcategory)
-                        @if ($subcategory->category_id == $category->id)
-                            <li class="honeycomb-cell">
-                                <a href="{{ route('products', ['id' => $subcategory->id]) }}">
-                                    <img class="honeycomb-cell__image"
-                                        src="{{ url('/storage/upload/subcategory') . '/' . $subcategory->image }}"
-                                        alt="{{ $subcategory->name }} Damarmas">
-                                    <div class="honeycomb-cell__title">{{ $subcategory->name }}</div>
-                                </a>
-                            </li>
-                        @endif
-                    @endforeach
-                    <li class="honeycomb-cell honeycomb__placeholder"></li>
-                </ul>
+        @if (count($data['categories']) > 0)
+            @foreach ($data['categories'] as $category)
+                <div class="category-section">
+                    <h4 class="category-title mt-5 text-center">{{ $category->name }}</h4>
+                    <ul class="honeycomb" lang="es">
+                        @foreach ($data['subcategories'] as $subcategory)
+                            @if ($subcategory->category_id == $category->id)
+                                <li class="honeycomb-cell">
+                                    <a href="{{ route('products', ['id' => $subcategory->id]) }}">
+                                        <img class="honeycomb-cell__image"
+                                            src="{{ url('/storage/upload/subcategory') . '/' . $subcategory->image }}"
+                                            alt="{{ $subcategory->name }} Damarmas">
+                                        <div class="honeycomb-cell__title">{{ $subcategory->name }}</div>
+                                    </a>
+                                </li>
+                            @endif
+                        @endforeach
+                        <li class="honeycomb-cell honeycomb__placeholder"></li>
+                    </ul>
+                </div>
+            @endforeach
+        @else
+            <div class="row row-cols-2 row-cols-lg-4 justify-content-center g-4 my-3">
+                <h5 class="text-center">Belum ada kategori</h5>
             </div>
-        @endforeach
+        @endif
     </article>
     <article class="container my-5 py-5">
         <h3 class="article-title">Produk Terbaru</h3>
-        <div class="row row-cols-2 row-cols-lg-4 g-4 my-3">
-            <x-product-card :data=$data></x-product-card>
-        </div>
+        @if (count($data['products']) > 0)
+            <div class="row row-cols-2 row-cols-lg-4 g-4 my-3">
+                <x-product-card :data=$data></x-product-card>
+            </div>
+        @else
+            <div class="row row-cols-2 row-cols-lg-4 justify-content-center g-4 my-3">
+                <h5 class="text-center">Belum ada produk</h5>
+            </div>
+        @endif
     </article>
     <article class="container my-5 py-5">
         <h3 class="article-title">Pengalaman bermitra dengan Damarmas</h3>
