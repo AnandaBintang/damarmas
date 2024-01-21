@@ -81,8 +81,16 @@ class BannerController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Banner $banner)
+    public function destroy(Banner $banner): RedirectResponse
     {
-        //
+        // Delete image
+        if ($banner->image) {
+            unlink(public_path('storage/upload/banner/' . $banner->image));
+        }
+
+        // Delete from database
+        $banner->delete();
+
+        return redirect()->back()->with('status', 'Banner berhasil dihapus!');
     }
 }

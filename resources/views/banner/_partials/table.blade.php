@@ -41,13 +41,11 @@
                         {{ $banner->link }}
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                        <a href="{{ route('subcategory.edit', $banner->id) }}"
-                            class="text-indigo-600 hover:text-indigo-900">
+                        <a href="{{ route('banner.edit', $banner->id) }}" class="text-indigo-600 hover:text-indigo-900">
                             <i class="fas fa-edit mr-2"></i>
                         </a>
-                        <form id="deleteForm-{{ $banner->id }}"
-                            action="{{ route('subcategory.destroy', $banner->id) }}" method="POST"
-                            class="inline-block">
+                        <form id="deleteForm-{{ $banner->id }}" action="{{ route('banner.destroy', $banner->id) }}"
+                            method="POST" class="inline-block">
                             @csrf
                             @method('DELETE')
                             <button type="button" class="text-red-600 hover:text-red-900"
